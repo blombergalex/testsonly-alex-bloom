@@ -27,7 +27,7 @@ export const projects: ProjectType[] = [
     imgSrc: "/images/portfolio.png",
     alt: "Snapshot of frontend developer portfolio created by Alexandra Blomberg",
     description:
-      "This portfolio marks my first project working with unit and integration tests. I wanted a platform to showcase my projects, so I built this with React, Next.JS, TypeScript and Tailwind CSS. I set up the tests with Jest and React Testing Library and built my components based on the tests. One of the best takeaways from this project is discovering that I enjoy testing and the control it gives of the development process.",
+      "This portfolio marks my first project working with unit and integration tests. I learned to use Jest and React Testing Library to set up the tests, and built the components based on them. One of the best takeaways from this project is discovering that I enjoy testing and the control it gives of the development process. Created with React, Next.js, TypeScript and Tailwind CSS.",
     githubLink: "https://github.com/blombergalex/alex-bloom",
     websiteLink: "https://alex-bloom.vercel.app/",
     favourite: false,
