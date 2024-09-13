@@ -9,7 +9,7 @@ const Connect = ({ connectText, imgSrc, alt }: ConnectType) => {
       data-testid="connect-section"
       className="flex justify-center p-6 md:p-14"
     >
-      <div className="flex flex-col text-gray-200 text-sm leading-6 bg-black pb-40 space-y-5 md:text-lg md:pb-32 lg:pb-56">
+      <div className="flex flex-col h-screen text-gray-200 text-sm leading-6 bg-black pb-40 space-y-5 md:text-lg md:pb-32 lg:pb-56">
         <h2 className="text-gray-200 bg-black text-center py-6 font-SansNarrow font-semi-bold text-lg sticky top-[0] z-10 md:text-2xl md:py-12 md:top-[61px]">
           Let's Connect
         </h2>

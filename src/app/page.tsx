@@ -6,7 +6,7 @@ import ProjectSection from "@/components/ProjectSection";
 import Navigation from "@/components/Navigation";
 import { about, connect, projects } from "@/utils/data";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   
@@ -14,20 +14,37 @@ export default function Home() {
   const projectRef = useRef<HTMLDivElement>(null);
   const connectRef = useRef<HTMLDivElement>(null);
 
+  const [activeSection, setActiveSection] = useState<"aboutMe" | "projects" | "connect">("aboutMe");
+
   const aboutMeInView = useInView(aboutMeRef);
   const projectInView = useInView(projectRef);
   const connectInView = useInView(connectRef);
 
+  useEffect(() => {
+    if (aboutMeInView) {
+      setActiveSection("aboutMe");
+    } else if (projectInView) {
+      setActiveSection("projects");
+    } else if (connectInView) {
+      setActiveSection("connect");
+    }
+  }, [aboutMeInView, projectInView, connectInView]);
+
   const handleScrollToSection = (section: "aboutMe" | "projects" | "connect") => {
     const ref = section === "aboutMe" ? aboutMeRef : section === "projects" ? projectRef : connectRef;
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+      const top = ref.current.getBoundingClientRect().top + window.scrollY + 1;
+  
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <>
-      <Navigation onScrollToSection={handleScrollToSection} />
+      <Navigation onScrollToSection={handleScrollToSection} activeSection={activeSection} />
       <div className="max-w-4xl mx-auto ">
         <div
           ref={aboutMeRef}
@@ -43,7 +60,7 @@ export default function Home() {
         </div>
         <div
           ref={connectRef}
-          className={`min-h-screen ${connectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+          className={`${connectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
         >
           <Connect {...connect} />
         </div>

@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 type NavigationProps = {
   onScrollToSection: (section: "aboutMe" | "projects" | "connect") => void;
+  activeSection: "aboutMe" | "projects" | "connect";
 };
 
-const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
+const Navigation: React.FC<NavigationProps> = ({ onScrollToSection, activeSection }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
+    if (!menuOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
     setMenuOpen(!menuOpen);
   };
 
@@ -31,12 +37,13 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
           >
             <XMarkIcon className="h-6 w-6" />
           </button>
-          <ul data-testid="mobile-nav-list" className="space-y-5">
+          <ul data-testid="mobile-nav-list" className="space-y-5 w-full text-center">
             <li
               onClick={() => {
                 onScrollToSection("aboutMe");
                 toggleMenu();
               }}
+              className={`w-full ${activeSection === "aboutMe" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
             >
               About Me
             </li>
@@ -45,6 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
                 onScrollToSection("projects");
                 toggleMenu();
               }}
+              className={`w-full ${activeSection === "projects" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
             >
               Projects
             </li>
@@ -53,28 +61,29 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
                 onScrollToSection("connect");
                 toggleMenu();
               }}
+              className={`w-full ${activeSection === "connect" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
             >
               Connect
             </li>
           </ul>
         </div>
       )}
-      
-      <ul className="hidden md:flex pr-10 justify-end gap-10 py-4 px-2  border-b border-b-gray-300">
+
+      <ul className="hidden md:flex pr-10 justify-end gap-10 py-4 px-2 border-b border-b-gray-300">
         <li
-          className="cursor-pointer text-lg hover:text-amber-500"
+          className={`cursor-pointer text-lg ${activeSection === "aboutMe" ? "border-b-2 border-amber-500" : "hover:border-b-2 border-amber-500"}`}
           onClick={() => onScrollToSection("aboutMe")}
         >
           About Me
         </li>
         <li
-          className="cursor-pointer text-lg hover:text-amber-500"
+          className={`cursor-pointer text-lg ${activeSection === "projects" ? "border-b-2 border-amber-500" : "hover:border-b-2 border-amber-500"}`}
           onClick={() => onScrollToSection("projects")}
         >
           Projects
         </li>
         <li
-          className="cursor-pointer text-lg hover:text-amber-500"
+          className={`cursor-pointer text-lg ${activeSection === "connect" ? "border-b-2 border-amber-500" : "hover:border-b-2 border-amber-500"}`}
           onClick={() => onScrollToSection("connect")}
         >
           Connect
