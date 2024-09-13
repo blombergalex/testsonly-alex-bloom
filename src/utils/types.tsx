@@ -11,6 +11,7 @@ export type ProjectType = {
 };
 
 export type AboutMeType = {
+  
   start: string;
   experience: string;
   nextStep: string;

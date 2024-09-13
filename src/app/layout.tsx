@@ -20,7 +20,6 @@ export default function RootLayout({
     <html lang="en" className="w-screen h-full m-0">
       <body className="flex flex-col w-full min-h-screen bg-black">
       <Header />
-      {/* Navigation here */}
         <div className="flex-grow max-w-4xl mx-auto">
           {children}
         </div>

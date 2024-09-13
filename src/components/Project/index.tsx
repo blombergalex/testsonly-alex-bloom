@@ -23,7 +23,7 @@ const Project = ({
     <div
       key={id}
       data-testid="project"
-      className="flex flex-col bg-amber-100 rounded-lg shadow-lg overflow-hidden border border-gray-200 m-2 pt-4 min-h-[560px] max-w-[370px] max-[420px]:w-[320px]"
+      className="flex flex-col bg-amber-100 rounded-lg shadow-lg overflow-hidden border border-gray-200 m-2 pt-4 min-h-[585px] max-w-[370px] max-[420px]:w-[320px]"
     >
       <div className="flex justify-center">
         <div className="relative w-[340px] h-56 max-[420px]:w-[300px]">
