@@ -60,7 +60,7 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
         </div>
       )}
       
-      <ul className="hidden md:flex pl-10 justify-start gap-10 py-4 px-2 border-b border-b-gray-300">
+      <ul className="hidden md:flex pr-10 justify-end gap-10 py-4 px-2  border-b border-b-gray-300">
         <li
           className="cursor-pointer text-lg hover:text-amber-500"
           onClick={() => onScrollToSection("aboutMe")}
