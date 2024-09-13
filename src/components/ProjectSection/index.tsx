@@ -25,7 +25,7 @@ const ProjectSection = ({ projects }: ProjectSectionProps) => {
       datatest-id="project-section"
       className="flex flex-col justify-center md:p-14"
     >
-      <h2 className="text-gray-200 bg-black text-center py-6 font-SansNarrow font-semi-bold text-lg md:text-2xl sticky top-[60px] z-10 md:py-12">
+      <h2 className="text-gray-200 bg-black text-center py-6 font-SansNarrow font-semi-bold text-lg md:text-2xl sticky top-[0] z-10 md:py-12 md:top-[61px]">
         My Projects
       </h2>
       <ProjectList
