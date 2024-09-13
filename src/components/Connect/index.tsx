@@ -13,14 +13,14 @@ const Connect = ({ connectText, imgSrc, alt }: ConnectType) => {
         <h2 className="text-gray-200 bg-black text-center py-6 font-SansNarrow font-semi-bold text-lg sticky top-[0] z-10 md:text-2xl md:py-12 md:top-[61px]">
           Let's Connect
         </h2>
-        <Reveal>
+        {/* <Reveal> */}
           <p data-testid="connect-text" className="opacity-85">
             {connectText}
           </p>
-        </Reveal>
+        {/* </Reveal> */}
         <div className="flex justify-between flex-wrap">
           <div className="flex flex-col space-4 justify-center">
-            <Reveal>
+            {/* <Reveal> */}
               <div className="text-gray-200 hover:text-amber-500">
                 <a
                   href="mailto:blombergalexandras@gmail.com"
@@ -30,10 +30,10 @@ const Connect = ({ connectText, imgSrc, alt }: ConnectType) => {
                   <span>blombergalexandras@gmail.com</span>
                 </a>
               </div>
-            </Reveal>
+            {/* </Reveal> */}
 
             <div className="text-gray-200 hover:text-amber-500">
-              <Reveal>
+              {/* <Reveal> */}
                 <a
                   href="https://www.linkedin.com/in/alexandra-blomberg-7231a616a/"
                   target="_blank"
@@ -43,11 +43,11 @@ const Connect = ({ connectText, imgSrc, alt }: ConnectType) => {
                   <UserPlusIcon className="w-6 h-6" />
                   <span>LinkedIn</span>
                 </a>
-              </Reveal>
+              {/* </Reveal> */}
             </div>
           </div>
           <div className="flex w-max-full justify-center mx-auto">
-            <Reveal>
+            {/* <Reveal> */}
               <Image
                 src={imgSrc}
                 width={225}
@@ -55,7 +55,7 @@ const Connect = ({ connectText, imgSrc, alt }: ConnectType) => {
                 alt={alt}
                 className="max-w-32 h-auto rounded-full m-4"
               />
-            </Reveal>
+            {/* </Reveal> */}
           </div>
         </div>
       </div>

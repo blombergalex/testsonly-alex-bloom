@@ -32,14 +32,14 @@ const ProjectList = ({
       >
         {displayedProjects &&
           displayedProjects.map((item) => (
-            <Reveal>
+            // <Reveal>
               <Project
                 key={item.id}
                 {...item}
                 onFavouriteToggle={onFavouriteToggle}
                 isFavourite={favouriteProjects.includes(item.id)}
               />
-            </Reveal>
+            // </Reveal>
           ))}
       </div>
       <ShowAllButton onShowAllToggle={handleShowAllToggle} showAll={showAll} />

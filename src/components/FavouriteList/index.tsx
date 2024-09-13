@@ -1,4 +1,3 @@
-import Reveal from "@/utils/reveal";
 import { ProjectType } from "@/utils/types";
 import { HeartIcon } from "@heroicons/react/20/solid";
 
