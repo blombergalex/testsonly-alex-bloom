@@ -28,23 +28,25 @@ export default function Home() {
   return (
     <>
       <Navigation onScrollToSection={handleScrollToSection} />
-      <div
-        ref={aboutMeRef}
-        className={`min-h-screen ${aboutMeInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
-      >
-        <AboutMe {...about} />
-      </div>
-      <div
-        ref={projectRef}
-        className={`min-h-screen ${projectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
-      >
-        <ProjectSection projects={projects} />
-      </div>
-      <div
-        ref={connectRef}
-        className={`min-h-screen ${connectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
-      >
-        <Connect {...connect} />
+      <div className="max-w-4xl mx-auto ">
+        <div
+          ref={aboutMeRef}
+          className={`min-h-screen ${aboutMeInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+        >
+          <AboutMe {...about} />
+        </div>
+        <div
+          ref={projectRef}
+          className={`min-h-screen ${projectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+        >
+          <ProjectSection projects={projects} />
+        </div>
+        <div
+          ref={connectRef}
+          className={`min-h-screen ${connectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+        >
+          <Connect {...connect} />
+        </div>
       </div>
     </>
   );

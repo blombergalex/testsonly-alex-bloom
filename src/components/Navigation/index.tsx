@@ -13,7 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
   };
 
   return (
-    <nav className="sticky top-0 w-full bg-black text-gray-200 z-50">
+    <nav className="sticky top-0 w-screen bg-black text-gray-200 z-50">
       <div className="flex p-2 md:hidden">
         <button
           onClick={toggleMenu}
@@ -60,7 +60,7 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
         </div>
       )}
       
-      <ul className="hidden md:flex justify-end gap-10 py-4 px-2 border-b border-b-gray-300">
+      <ul className="hidden md:flex pl-10 justify-start gap-10 py-4 px-2 border-b border-b-gray-300">
         <li
           className="cursor-pointer text-lg hover:text-amber-500"
           onClick={() => onScrollToSection("aboutMe")}
