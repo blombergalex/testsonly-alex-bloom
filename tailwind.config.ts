@@ -21,10 +21,15 @@ const config: Config = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1'},
         },
+        'spin-right': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(90deg)' },
+        }
       },
       animation: {
         'fade-in-down': 'fade-in-down 1.2s ease-in-out',
         'fade-in': 'fade-in 1s ease-in',
+        'spin-right': 'spin-right 0.3s ease-in-out',
       },
     },
   },

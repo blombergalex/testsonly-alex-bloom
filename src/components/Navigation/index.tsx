@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 type NavigationProps = {
   onScrollToSection: (section: "aboutMe" | "projects" | "connect") => void;
@@ -16,20 +17,19 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection }) => {
       <div className="flex p-2 md:hidden">
         <button
           onClick={toggleMenu}
-          className="text-2xl focus:outline-none absolute top-5 right-5 "
+          className="text-2xl absolute top-5 right-5 "
         >
-          <span data-testid="hamburger-icon">&#9776;</span>{" "}
-          {/* change to better icon */}
+          <Bars3Icon className="h-6 w-6 text-gray-200" />
         </button>
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 bg-black text-white flex flex-col justify-center items-center gap-10 text-2xl">
+        <div className="fixed inset-0 bg-black text-white flex flex-col justify-center items-center gap-10 text-xl font-SansNarrow">
           <button
-            className="absolute top-5 right-5 text-3xl"
+            className={`absolute top-5 right-5 text-3xl transition-transform duration-500 ${menuOpen ? "animate-spin-right" : ""}`}
             onClick={toggleMenu}
           >
-            &times;
+            <XMarkIcon className="h-6 w-6" />
           </button>
           <ul data-testid="mobile-nav-list" className="space-y-5">
             <li
