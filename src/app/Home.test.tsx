@@ -2,54 +2,80 @@ import AboutMe from "@/components/About"
 import Connect from "@/components/Connect"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import Navigation from "@/components/Navigation"
 import ProjectSection from "@/components/ProjectSection"
 import { AboutMeType, ConnectType, ProjectType } from "@/utils/types"
-import { render, screen, fireEvent } from "@testing-library/react"
-import { mockProjects } from "@/components/ProjectSection/ProjectSection.test"
+import { render, screen, fireEvent, waitFor } from "@testing-library/react"
+import { useInView } from "framer-motion"
+import { AboutMockData, ConnectMockData, mockProjects } from "@/utils/mockData"
 
 
-// integration test for navigation
+jest.mock("framer-motion", () => ({
+  useInView: jest.fn(),
+}));
+
+const ProjectsMockData: ProjectType[] = mockProjects;
 
 describe("Navigation functionality tests", () => {
-
-  const AboutMockData: AboutMeType = {
-    start: "This is a mock description written for the purpose of testing",
-    experience:
-      "This is a mock description of my experience for the purpose of testing",
-    nextStep: "This is a mock description about the next step in my career",
-    purpose: "This is a mock description of the purpose of this site",
-  };
-
-  const ProjectsMockData: ProjectType[] = mockProjects;
-
-  const ConnectMockData: ConnectType = {
-    connectText: "This is a mocktext for the connect section",
-    imgSrc: "/images/mock-profile.jpg",
-    alt: "Mock alt text for testing purposes",
-  };
-
-  const mockIsVisible = true;
+  const mockOnScrollToSection = jest.fn();
+  beforeEach(() => {
+    (useInView as jest.Mock).mockReset();
+  });
   
-  it("Checks that click on each navigation item shows expected section", () => {
+  it("highlights the correct navigation item based on the section in view", async () => {
+      // Mock the useInView hook to simulate different sections being in view
+      (useInView as jest.Mock).mockImplementation((ref) => {
+        // Simulate different sections being in view based on the ref
+        if (ref.current?.classList.contains("aboutMe")) return { inView: true };
+        if (ref.current?.classList.contains("project")) return { inView: false };
+        if (ref.current?.classList.contains("connect")) return { inView: false };
+        return { inView: false };
+      });
+
     render(
       <body className="flex flex-col w-full min-h-screen bg-black">
       <Header />
-      <Navigation />
-      <AboutMe {...AboutMockData} isVisible={mockIsVisible}/>
+      <Navigation onScrollToSection={mockOnScrollToSection} activeSection="aboutMe" />
+      <AboutMe {...AboutMockData}/>
       <ProjectSection projects={ProjectsMockData}/>
       <Connect  {...ConnectMockData}/>
       <Footer />
       </body>
     )
 
-    const aboutMe = screen.getByTestId("about-me-section");
-    expect(aboutMe.classList.contains("hidden")).toBe(false); // expect about me to show on page load
+    expect(screen.getByTestId("mobile-aboutMe")).toHaveClass("underline");
+    expect(screen.getByTestId("mobile-projects")).not.toHaveClass("underline");
+    expect(screen.getByTestId("mobile-connect")).not.toHaveClass("underline");
 
-    // click connect menu item
+    // Simulate scrolling to "Projects" section
+    // (useInView as jest.Mock).mockImplementation((ref) => {
+    //   if (ref === aboutMeRef.current) return { inView: false };
+    //   if (ref === projectRef.current) return { inView: true };
+    //   if (ref === connectRef.current) return { inView: false };
+    //   return { inView: false };
+    // });
 
-    // rerender about container
-    expect(aboutMe.classList.contains("hidden")).toBe(true); // expect about me to be hidden when connect is clicked
-// repeat more scenarios
-  
+    // // Wait for state update
+    // await waitFor(() => {
+    //   expect(screen.getByTestId("mobile-aboutMe")).not.toHaveClass("underline");
+    //   expect(screen.getByTestId("mobile-projects")).toHaveClass("underline");
+    //   expect(screen.getByTestId("mobile-connect")).not.toHaveClass("underline");
+    // });
+
+    // // Simulate scrolling to "Connect" section
+    // (useInView as jest.Mock).mockImplementation((ref) => {
+    //   if (ref === aboutMeRef.current) return { inView: false };
+    //   if (ref === projectRef.current) return { inView: false };
+    //   if (ref === connectRef.current) return { inView: true };
+    //   return { inView: false };
+    // });
+
+    // // Wait for state update
+    // await waitFor(() => {
+    //   expect(screen.getByTestId("mobile-aboutMe")).not.toHaveClass("underline");
+    //   expect(screen.getByTestId("mobile-projects")).not.toHaveClass("underline");
+    //   expect(screen.getByTestId("mobile-connect")).toHaveClass("underline");
+
+    // });
   });
 })

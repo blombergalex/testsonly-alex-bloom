@@ -1,22 +1,16 @@
 import { screen, render } from "@testing-library/react";
-import { ConnectType } from "@/utils/types";
+import { ConnectMockData } from "@/utils/mockData";
 import Connect from ".";
-
-const mockData: ConnectType = {
-  connectText: "This is a mocktext for the connect section",
-  imgSrc: "/images/mock-profile.jpg",
-  alt: "Mock alt text for testing purposes",
-};
 
 describe("Checks that Connect component renders correctly", () => {
   it("Checks component renders", () => {
-    render(<Connect {...mockData} />);
+    render(<Connect {...ConnectMockData} />);
     const aboutMe = screen.getByTestId("connect-section");
     expect(aboutMe).toBeInTheDocument();
   });
 
   it("Checks for Connect section title", () => {
-    render(<Connect {...mockData} />);
+    render(<Connect {...ConnectMockData} />);
     const connectSectionTitle = screen.getByRole("heading", {
       level: 2,
       name: "Let's Connect",
@@ -25,14 +19,14 @@ describe("Checks that Connect component renders correctly", () => {
   });
 
   it("Checks for connect text", () => {
-    render(<Connect {...mockData} />);
+    render(<Connect {...ConnectMockData} />);
     const startText = screen.getByTestId("connect-text");
     expect(startText).toBeInTheDocument();
-    expect(startText).toHaveTextContent(mockData.connectText);
+    expect(startText).toHaveTextContent(ConnectMockData.connectText);
   });
 
   it("Checks for mail address", () => {
-    render(<Connect {...mockData} />);
+    render(<Connect {...ConnectMockData} />);
     const mailLink = screen.getByRole("link", {
       name: "blombergalexandras@gmail.com",
     });
@@ -44,7 +38,7 @@ describe("Checks that Connect component renders correctly", () => {
   });
 
   it("Checks for LinkedIn link", () => {
-    render(<Connect {...mockData} />);
+    render(<Connect {...ConnectMockData} />);
     const socialLink = screen.getByRole("link", { name: "LinkedIn" });
     expect(socialLink).toBeInTheDocument();
     expect(socialLink).toHaveAttribute(
@@ -54,12 +48,12 @@ describe("Checks that Connect component renders correctly", () => {
   });
 
   it("Checks for image", () => {
-    render(<Connect {...mockData} />);
-    const profileImage = screen.getByRole("img", { name: mockData.alt });
+    render(<Connect {...ConnectMockData} />);
+    const profileImage = screen.getByRole("img", { name: ConnectMockData.alt });
     expect(profileImage).toBeInTheDocument();
     expect(profileImage).toHaveAttribute(
       "src",
-      expect.stringContaining(encodeURIComponent(mockData.imgSrc))
+      expect.stringContaining(encodeURIComponent(ConnectMockData.imgSrc))
     );
   });
 });

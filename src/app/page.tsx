@@ -48,19 +48,19 @@ export default function Home() {
       <div className="max-w-4xl mx-auto ">
         <div
           ref={aboutMeRef}
-          className={`min-h-screen ${aboutMeInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+          className={`aboutMe min-h-screen ${aboutMeInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
         >
           <AboutMe {...about} />
         </div>
         <div
           ref={projectRef}
-          className={`min-h-screen ${projectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+          className={`project min-h-screen ${projectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
         >
           <ProjectSection projects={projects} />
         </div>
         <div
           ref={connectRef}
-          className={`${connectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+          className={`connect ${connectInView ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
         >
           <Connect {...connect} />
         </div>
