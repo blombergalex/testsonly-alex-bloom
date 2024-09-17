@@ -30,7 +30,7 @@ const Project = ({
           <Image
             src={imgSrc}
             alt={alt}
-            layout="fill"
+            fill
             objectFit="fill"
             className="rounded-lg"
             sizes="(max-width: 340px)"
