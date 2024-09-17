@@ -19,7 +19,7 @@ const Connect = ({ connectText, imgSrc, alt }: ConnectType) => {
           </p>
         {/* </Reveal> */}
         <div className="flex justify-between flex-wrap">
-          <div className="flex flex-col space-4 justify-center">
+          <div className="flex flex-col space-y-4 justify-center">
             {/* <Reveal> */}
               <div className="text-gray-200 hover:text-amber-500">
                 <a
@@ -31,7 +31,6 @@ const Connect = ({ connectText, imgSrc, alt }: ConnectType) => {
                 </a>
               </div>
             {/* </Reveal> */}
-
             <div className="text-gray-200 hover:text-amber-500">
               {/* <Reveal> */}
                 <a

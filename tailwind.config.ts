@@ -17,6 +17,10 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(-20px)' },
           '100%': { opacity: '0.6', transform: 'translateY(0)' },
         },
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
         'fade-in': {
           '0%': { opacity: '0' },
           '100%': { opacity: '1'},
@@ -28,6 +32,7 @@ const config: Config = {
       },
       animation: {
         'fade-in-down': 'fade-in-down 1.2s ease-in-out',
+        'fade-in-up': 'fade-in-up 0.7s ease-in-out',
         'fade-in': 'fade-in 1s ease-in',
         'spin-right': 'spin-right 0.3s ease-in-out',
       },

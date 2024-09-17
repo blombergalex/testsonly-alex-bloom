@@ -8,7 +8,7 @@ A minimum of 20 unit tests which MUST include:
 - getByRole ✅
 - getAll by something ✅
 - queryBy something ✅
-- at least 2 different type of events ! 
+11111 - at least 2 different type of events ! 111
 
 A minimum of 3 integration tests which MUST include
 - Some aspect of state changing that is clearly defined

@@ -45,7 +45,7 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection, activeSectio
                 onScrollToSection("aboutMe");
                 toggleMenu();
               }}
-              className={`w-full ${activeSection === "aboutMe" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
+              className={`w-full animate-fade-in-up ${activeSection === "aboutMe" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
               data-testid="mobile-aboutMe"
             >
               About Me
@@ -55,7 +55,7 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection, activeSectio
                 onScrollToSection("projects");
                 toggleMenu();
               }}
-              className={`w-full ${activeSection === "projects" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
+              className={`w-full animate-fade-in-up ${activeSection === "projects" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
               data-testid="mobile-projects"
             >
               Projects
@@ -65,7 +65,7 @@ const Navigation: React.FC<NavigationProps> = ({ onScrollToSection, activeSectio
                 onScrollToSection("connect");
                 toggleMenu();
               }}
-              className={`w-full ${activeSection === "connect" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
+              className={`w-full animate-fade-in-up ${activeSection === "connect" ? "underline decoration-amber-500 underline-offset-8" : ""}`}
               data-testid="mobile-connect"
             >
               Connect
