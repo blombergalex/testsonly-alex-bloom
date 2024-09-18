@@ -84,4 +84,33 @@ describe("Tests for navigation component", () => {
       expect(mockOnScrollToSection).toHaveBeenCalledWith(arg);
     });
   });
+
+  it("highlights About Me navigation item when About Me section is in view", async () => {
+    render(<Navigation onScrollToSection={mockOnScrollToSection} activeSection="aboutMe" />);
+
+    const aboutNavItem = screen.getByTestId("desktop-aboutMe");
+    const projectNavItem = screen.getByTestId("desktop-projects");
+    const connectNavItem = screen.getByTestId("desktop-connect");
+
+    expect(aboutNavItem.classList.contains("border-b-2")).toBe(true);
+    expect(projectNavItem.classList.contains("border-b-2")).toBe(false);
+    expect(connectNavItem.classList.contains("border-b-2")).toBe(false);
+
+  });
+
+  it("highlights Projects navigation item when Project section is in view", async () => {
+    render(<Navigation onScrollToSection={mockOnScrollToSection} activeSection="projects" />);
+
+    expect(screen.getByTestId("desktop-aboutMe").classList.contains("border-b-2")).toBe(false);
+    expect(screen.getByTestId("desktop-projects").classList.contains("border-b-2")).toBe(true);
+    expect(screen.getByTestId("desktop-connect").classList.contains("border-b-2")).toBe(false);
+  });
+
+  it("highlights Connect navigation item when Connect section is in view", async () => {
+    render(<Navigation onScrollToSection={mockOnScrollToSection} activeSection="connect" />);
+
+    expect(screen.getByTestId("desktop-aboutMe").classList.contains("border-b-2")).toBe(false);
+    expect(screen.getByTestId("desktop-projects").classList.contains("border-b-2")).toBe(false);
+    expect(screen.getByTestId("desktop-connect").classList.contains("border-b-2")).toBe(true);
+  });
 });

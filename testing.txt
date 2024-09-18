@@ -10,6 +10,20 @@ A minimum of 20 unit tests which MUST include:
 - queryBy something ✅
 11111 - at least 2 different type of events ! 111
 
+'mock scroll by offset:
+
+  // set the offset of a section, and check it in the test when scroll To offset component, 
+  // to see if the offset is reflected ie component is visible or not.
+  // if aboutme has offset -1 - should show (have opacity 100)
+  // else if projects have offset -1 should show ....
+
+  //in test: render component
+  // expect it to have opacity 0
+
+  // mock 'scroll' using offset to set component to -1px,
+  // render scrolledComponent
+  // expect it to have opacity 100
+
 A minimum of 3 integration tests which MUST include
 - Some aspect of state changing that is clearly defined
 - Appropriate test suites and file organization
