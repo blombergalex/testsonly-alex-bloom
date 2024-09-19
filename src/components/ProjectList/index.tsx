@@ -27,7 +27,7 @@ const ProjectList = ({
       <div
         data-testid="project-list"
         className={`flex flex-wrap text-gray-200 justify-center
-        ${projectItems.length % 4 === 0 ? "" : "md:justify-start"}`}
+          ${projectItems.length % 2 === 1 ? "lg:justify-start" : ""}`}
       >
         {displayedProjects &&
           displayedProjects.map((item) => (

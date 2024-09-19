@@ -51,7 +51,7 @@ export const projects: ProjectType[] = [
     imgSrc: "/images/parking-time.png",
     alt: "Snapshot of the website Parking Time Sweden, showcasing its hero image and unique selling points.",
     description:
-      "UX designers, Agile Project Manager and me as part of the frontend develoment team worked together to give Parking Time Sweden a new face and improved user experience. Created with React, Next.js, Tailwind and next-intl for internationalization. The project took place over four intense week-long sprints, where our engaged and motivated team was invaluable.",
+      "In this project me and my frontend development peers worked with UX designers and a project manager to give Parking Time Sweden a new face and improved user experience. Created with React, Next.js, Tailwind and next-intl for internationalization. The project took place over four intense sprints, where we brought feedback during client demos further into development every week.",
     githubLink:
       "https://github.com/Diyako-Qadri/parking-time-sweden-ab/tree/main",
     websiteLink: "https://parking-time-sweden-ab.vercel.app",
