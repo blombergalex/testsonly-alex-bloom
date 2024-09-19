@@ -1,3 +1,2 @@
-A react app showcasing my projects. Technologies used: React, Next.js, Tailwind CSS, Jest, React Testing Library. 
-
-Disclaimer: The testing done in this project doesn't verify the full integration of routing, it simply tests that the correct components render on different routes. 
+A portfolio project built with Next.js, React, Tailwind CSS. Unit and integration tests created with Jest and React Testing Library. 
+Visit at alex-bloom.vercel.app
