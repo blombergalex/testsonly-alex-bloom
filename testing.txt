@@ -32,8 +32,10 @@ A minimum of 3 integration tests which MUST include
 
   1: show all button -> make more items in project section show ✅
     : hide button -> make items hide
-  3: add favourite -> favourite from project added to favouriteList
-  4: remove favourite -> favourite removed when project is un-favourited
+  2: add favourite -> favourite from project added to favouriteList
+    : remove favourite -> favourite removed when project is un-favourited
+  3: Navigation tests checks interaction between components!!!! yeah!
+
 
 Submission:
 A written proposal descripting the features & functionality of the application
